@@ -1,0 +1,145 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LastMinute | Pro Revision</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --mesh-color-1: rgba(79, 70, 229, 0.15); /* Indigo */
+            --mesh-color-2: rgba(6, 182, 212, 0.15); /* Cyan */
+            --mesh-color-3: rgba(139, 92, 246, 0.15); /* Violet */
+        }
+        body { 
+            font-family: 'Plus Jakarta Sans', sans-serif; 
+            overflow-x: hidden;
+        }
+        .mesh-bg {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            z-index: -1;
+            background-color: #f8fafc;
+            background-image: 
+                radial-gradient(at 0% 0%, var(--mesh-color-1) 0, transparent 50%), 
+                radial-gradient(at 100% 0%, var(--mesh-color-2) 0, transparent 50%), 
+                radial-gradient(at 50% 100%, var(--mesh-color-3) 0, transparent 50%);
+        }
+        .dark .mesh-bg {
+            background-color: #020617; /* Deep Navy */
+            --mesh-color-1: rgba(79, 70, 229, 0.1);
+            --mesh-color-2: rgba(6, 182, 212, 0.1);
+            --mesh-color-3: rgba(139, 92, 246, 0.1);
+        }
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: transparent; }
+        ::-webkit-scrollbar-thumb { 
+            background: #cbd5e1; 
+            border-radius: 10px;
+        }
+        .dark ::-webkit-scrollbar-thumb { background: #1e293b; }
+        
+        @keyframes shimmer {
+            0% { background-position: -200% 0; }
+            100% { background-position: 200% 0; }
+        }
+        .shimmer {
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            background-size: 200% 100%;
+            animation: shimmer 1.5s infinite;
+        }
+        .prose { font-size: 0.9375rem; line-height: 1.7; }
+        
+        @media print {
+            @page {
+                margin: 20mm;
+                size: A4;
+            }
+            body {
+                background: white !important;
+                color: black !important;
+                font-size: 11pt;
+            }
+            .no-print { display: none !important; }
+            .mesh-bg { display: none !important; }
+            .print-full-width {
+                width: 100% !important;
+                max-width: 100% !important;
+                margin: 0 !important;
+                padding: 0 !important;
+            }
+            .card-break {
+                break-inside: avoid;
+                page-break-inside: avoid;
+                margin-bottom: 2rem;
+                border: 1px solid #e2e8f0 !important;
+                box-shadow: none !important;
+                background: white !important;
+                border-radius: 0 !important;
+                padding: 1.5rem !important;
+            }
+            .prose {
+                max-width: 100% !important;
+                color: black !important;
+            }
+            header, footer, .no-print-area { display: none !important; }
+            
+            /* Academic Header for PDF */
+            .print-academic-header {
+                display: block !important;
+                border-bottom: 2pt solid black;
+                margin-bottom: 2rem;
+                padding-bottom: 1rem;
+            }
+
+            .print-ink-saver * {
+                background-color: transparent !important;
+                background-image: none !important;
+                color: black !important;
+                border-color: #ccc !important;
+                box-shadow: none !important;
+                text-shadow: none !important;
+            }
+
+            .print-hide-mcqs .practice-arena-section { display: none !important; }
+            .print-hide-map .logic-map-section { display: none !important; }
+            .print-hide-formulas .formula-vault-section { display: none !important; }
+
+            .mermaid svg {
+                width: 100% !important;
+                height: auto !important;
+                max-width: 170mm !important;
+            }
+
+            h1, h2, h3 {
+                color: black !important;
+                page-break-after: avoid;
+            }
+            
+            p, blockquote, pre {
+                orphans: 3;
+                widows: 3;
+            }
+        }
+        .print-academic-header { display: none; }
+    </style>
+<script type="importmap">
+{
+  "imports": {
+    "react/": "https://esm.sh/react@^19.2.3/",
+    "react": "https://esm.sh/react@^19.2.3",
+    "react-dom/": "https://esm.sh/react-dom@^19.2.3/",
+    "@google/genai": "https://esm.sh/@google/genai@^1.38.0",
+    "firebase/": "https://esm.sh/firebase@^12.8.0/"
+  }
+}
+</script>
+</head>
+<body class="selection:bg-indigo-100 selection:text-indigo-900 dark:selection:bg-indigo-900 dark:selection:text-indigo-100">
+    <div class="mesh-bg"></div>
+    <div id="root"></div>
+</body>
+</html>

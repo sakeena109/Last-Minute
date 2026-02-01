@@ -1,0 +1,7 @@
+{
+  "name": "LastMinute - Exam Revision Assistant",
+  "description": "A smart revision tool that transforms long study notes into concise, exam-oriented revision guides, definitions, and formulas using Gemini AI.",
+  "requestFramePermissions": [
+    "microphone"
+  ]
+}
